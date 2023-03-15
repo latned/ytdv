@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=YTDV
+Comment=Download youtube video
+Comment[uk]=Завантажує відео з youtube
+Exec=/usr/bin/ytdv
+Icon=/usr/lib/YTDV/icon-1.1.png
+Categories=Network;
+GenericName=YTDV
+GenericName[uk]=YTDV
+Terminal=false
+Type=Application
+Keywords=download;youtube;video;

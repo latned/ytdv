@@ -1,0 +1,35 @@
+#!/usr/bin/python3
+
+"""
+App for downloading youtube video
+Icons from https://icons8.com
+"""
+
+import sys
+import subprocess
+from importlib.machinery import SourceFileLoader
+
+# imports the module from the given path
+cli_app = SourceFileLoader("cli_app","/usr/lib/YTDV/cli_app.py").load_module()
+gui_app = SourceFileLoader("gui_app","/usr/lib/YTDV/gui_app.py").load_module()
+
+subprocess.run(["bash", "/usr/lib/YTDV/config.sh"],)
+
+
+def determine_environment():
+    # Find if app runs in terminal or not
+    mode = 1
+    try:
+        if sys.stdin.isatty():
+            mode = 0
+    except AttributeError:  # stdin is NoneType if not in terminal mode
+        pass
+
+    if mode == 0:
+        cli_app.CliApp()
+    else:
+        gui_app.App()
+
+
+if __name__ == "__main__":
+    determine_environment()
